@@ -1,0 +1,10 @@
+class Solution:    
+    def findUnion(self, a, b):
+       myset=set(a)
+       stack=list(myset)
+       for i in range(len(b)):
+           if b[i] not in stack:
+               stack.append(b[i])
+    
+       return stack                      
+                       
