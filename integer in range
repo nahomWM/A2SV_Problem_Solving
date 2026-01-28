@@ -1,0 +1,13 @@
+class Solution(object):
+    def isCovered(self, ranges, left, right):
+        store = set()
+        for x, y in ranges:
+            for i in range(x, y + 1):
+                store.add(i)
+        for i in range(left, right + 1):
+            if i not in store:
+                return False
+        return True
+
+
+
