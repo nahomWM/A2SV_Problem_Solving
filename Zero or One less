@@ -1,0 +1,17 @@
+class Solution(object):
+    def findWinners(self, matches):
+        loser = {}        
+        winner = set()     
+        answer = [[], []]
+        for game in matches:
+            winner.add(game[0])
+            winner.add(game[1])
+            loser[game[1]] = loser.get(game[1], 0) + 1
+        for i in winner:
+            if i not in loser:
+                answer[0].append(i)
+            elif loser[i] == 1:
+                answer[1].append(i)
+        answer[0].sort()
+        answer[1].sort()
+        return answer
