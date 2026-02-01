@@ -1,0 +1,12 @@
+import sys
+n = int(input())
+phoneBook = {}
+for _ in range(n):
+    name, number = input().split()
+    phoneBook[name] = number
+for line in sys.stdin:
+    query = line.strip()
+    if query in phoneBook:
+        print(f"{query}={phoneBook[query]}")
+    else:
+        print("Not found")
