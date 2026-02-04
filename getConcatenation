@@ -1,0 +1,7 @@
+class Solution(object):
+    def getConcatenation(self, nums):
+       answer=nums[:]
+       ans=nums + answer
+       return ans
+       
+          
