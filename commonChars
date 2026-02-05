@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def commonChars(self, words):
+        common_count = Counter(words[0])        
+        for word in words:
+            word_count = Counter(word)
+            for char in common_count.keys():
+                common_count[char] = min(common_count[char], word_count[char])     
+        result = []
+        for char, count in common_count.items():
+            for _ in range(count):
+                result.append(char)       
+        return result
