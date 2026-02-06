@@ -1,0 +1,20 @@
+from collections import Counter
+class Solution(object):
+    def isAnagram(self, s, t):
+
+        s_dict=Counter(s)
+        t_dict=Counter(t)
+        if len(s) >= len(t):
+             for key,value in s_dict.items():
+                 if key not in t_dict.keys():
+                     return False
+                 if value != t_dict[key]:
+                     return False
+             return True
+        else:
+              for key,value in t_dict.items():
+                 if key not in s_dict.keys():
+                     return False
+                 if value != s_dict[key]:
+                     return False
+              return True
