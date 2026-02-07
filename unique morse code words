@@ -1,0 +1,14 @@
+# problem url-> https://leetcode.com/problems/unique-morse-code-words/description/
+
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        dict_main={  'a': '.-','b': '-...','c': '-.-.','d': '-..','e': '.','f': '..-.','g': '--.','h': '....','i': '..','j': '.---','k': '-.-','l': '.-..','m': '--','n': '-.','o': '---','p': '.--.','q': '--.-','r': '.-.','s': '...','t': '-','u': '..-','v': '...-','w': '.--','x': '-..-','y': '-.--','z': '--..'
+                      }               
+        sol=[]
+        for i in words:
+            str1=''
+            for j in i:
+               str1+=dict_main[j]
+            if str1 not in sol:
+               sol.append(str1)
+        return len(sol)
