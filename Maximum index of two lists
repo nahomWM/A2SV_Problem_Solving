@@ -1,0 +1,12 @@
+class Solution(object):
+    def findRestaurant(self, list1, list2):
+        dict_1={}
+        sol=[]
+        for i in list1:
+            if i in list2 and i not in dict_1:
+                dict_1[i]=list1.index(i) + list2.index(i)
+        target_value=min(dict_1.values())
+        for key, value in dict_1.items():
+            if value == target_value:
+               sol.append(key)
+        return sol
