@@ -1,0 +1,21 @@
+problem url: https://leetcode.com/problems/keyboard-row/
+
+class Solution(object):
+    def findWords(self, words):
+        row1="qwertyuiop"
+        row2="asdfghjkl"
+        row3="zxcvbnm"
+        sol=[]
+        for i in words:
+            k=i.lower()
+            if all(item in row1 for item in k):
+                sol.append(i)
+            elif all(item in row2 for item in k):
+                sol.append(i)
+            elif all(item in row3 for item in k):
+                sol.append(i)
+        return sol
+
+    
+
+        
