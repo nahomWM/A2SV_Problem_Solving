@@ -1,0 +1,10 @@
+problem url: https://codeforces.com/problemset/problem/546/A
+
+a, b, c = map(int, input().split())
+money = 0
+for i in range(1, c + 1):
+    money += i * a
+if money > b:
+    print(money - b)
+else:
+    print(0)
