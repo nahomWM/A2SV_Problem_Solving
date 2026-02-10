@@ -1,0 +1,10 @@
+problem url: https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/description/
+
+class Solution(object):
+def minMovesToSeat(self, seats, students):
+        seats.sort()
+        students.sort()
+        sol = 0
+        for i in range(len(seats)):
+            sol += abs(students[i] - seats[i])
+        return sol
