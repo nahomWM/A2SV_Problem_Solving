@@ -1,0 +1,10 @@
+problem url: https://leetcode.com/problems/shuffle-string/description/
+
+class Solution(object):
+    def restoreString(self, s, indices):
+        string_collect=""
+        for i in range(len(indices)):
+            store=indices.index(i)
+            string_collect+=s[store]
+        return string_collect
+        
