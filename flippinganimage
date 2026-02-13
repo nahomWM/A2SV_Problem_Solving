@@ -1,0 +1,13 @@
+class Solution(object):
+    def flipAndInvertImage(self, image):
+        lol = [] 
+        for row in image:
+            temp = row[::-1]  
+            zzz = []
+            for i in temp:
+                zzz.append(1 if i == 0 else 0)  
+            lol.append(zzz)
+        return lol
+image = [[1,1,0],[1,0,1],[0,0,0]]
+sol = Solution()
+print(sol.flipAndInvertImage(image))
