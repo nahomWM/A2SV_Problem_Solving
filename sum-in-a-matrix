@@ -1,0 +1,12 @@
+problem url: https://leetcode.com/problems/sum-in-a-matrix/description/
+
+class Solution(object):
+    def matrixSum(self, nums):
+        for i in nums:
+            i.sort()     
+        score = 0
+        for j in zip(*nums):
+            score += max(j)
+        
+        return score
+
