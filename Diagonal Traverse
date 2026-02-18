@@ -1,0 +1,15 @@
+class Solution(object):
+    def findDiagonalOrder(self, mat):
+        sol = []
+        m = len(mat)
+        n = len(mat[0])
+        for d in range(m + n - 1):
+            tmp = []
+            for i in range(m):
+                j = d - i
+                if 0 <= j < n:
+                    tmp.append(mat[i][j])
+            if d % 2 == 0:
+                tmp.reverse()
+            sol += tmp
+        return sol
