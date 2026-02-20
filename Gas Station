@@ -1,0 +1,16 @@
+class Solution(object):
+    def canCompleteCircuit(self, gas, cost):
+        full = 0
+        now = 0
+        start = 0        
+        for i in range(len(gas)):
+            diff = gas[i] - cost[i]
+            full += diff
+            now += diff            
+            if now < 0:
+                start = i + 1
+                now = 0     
+        if full >= 0:
+            return start
+        else:
+            return -1
