@@ -1,0 +1,8 @@
+class Solution(object):
+    def escapeGhosts(self, g, t):
+        p_dis = abs(t[0]) + abs(t[1])
+        for gx, gy in g:
+            g_dis = abs(gx - t[0]) + abs(gy - t[1])
+            if g_dis <= p_dis:
+                return False
+        return True
