@@ -1,0 +1,7 @@
+class Solution(object):
+    def minimumOperations(self, nums):
+        op = 0  
+        for num in nums:
+            to_left = num % 3
+            op += min(to_left, 3 - to_left)       
+        return op
