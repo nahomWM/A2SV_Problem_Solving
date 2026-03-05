@@ -1,0 +1,18 @@
+class Solution(object):
+    def queryResults(self, limit, queries):
+        ball_c = {}
+        color_c = {}
+        result = []
+        for ball, color in queries:
+            if ball in ball_c:
+                old_c = ball_c[ball]
+                color_c[old_c] -= 1
+                if color_c[old_c] == 0:
+                    del color_c[old_c]
+            ball_c[ball] = color
+            if color in color_c:
+                color_c[color] += 1
+            else:
+                color_c[color] = 1
+            result.append(len(color_c))
+        return result
