@@ -1,0 +1,14 @@
+problem url: https://leetcode.com/problems/maximum-matching-of-players-with-trainers/description/
+
+class Solution(object):
+    def matchPlayersAndTrainers(self, players, trainers):
+        players.sort()
+        trainers.sort()
+        a = 0
+        match = 0
+        for i in trainers:
+            if a < len(players) and players[a] <= i:
+                match += 1
+                a += 1
+        return match
+        
