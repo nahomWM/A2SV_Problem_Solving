@@ -1,0 +1,19 @@
+class Solution:
+    def numberOfBoomerangs(self, p):
+        n = len(p)
+        a = 0
+        
+        for i in range(n):
+            d = {}         
+            for j in range(n):
+                dx = p[i][0] - p[j][0]
+                dy = p[i][1] - p[j][1]
+                s = dx*dx + dy*dy               
+                if s in d:
+                    d[s] += 1
+                else:
+                    d[s] = 1           
+            for v in d.values():
+                a += v * (v - 1)
+                
+        return a
