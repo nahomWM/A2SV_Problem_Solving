@@ -1,0 +1,14 @@
+class Solution:
+    def dividePlayers(self, s):
+        s.sort()
+        i = 0
+        j = len(s) - 1
+        t = s[i] + s[j]
+        c = 0
+        while i < j:
+            if s[i] + s[j] != t:
+                return -1
+            c = c + (s[i] * s[j])
+            i = i + 1
+            j = j - 1
+        return c
