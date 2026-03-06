@@ -1,0 +1,24 @@
+class Solution:
+    def imageSmoother(self, img):
+        m, n = len(img), len(img[0])
+
+        r = []
+        for i in range(m):
+            row = [0] * n
+            r.append(row)
+
+        d = [(-1,-1), (-1,0), (-1,1),
+             (0,-1),  (0,0),  (0,1),
+             (1,-1),  (1,0),  (1,1)]
+
+        for i in range(m):
+            for j in range(n):
+                s = 0
+                c = 0
+                for x, y in d:
+                    ni, nj = i + x, j + y
+                    if 0 <= ni < m and 0 <= nj < n:
+                        s += img[ni][nj]
+                        c += 1
+                r[i][j] = s // c
+        return r
