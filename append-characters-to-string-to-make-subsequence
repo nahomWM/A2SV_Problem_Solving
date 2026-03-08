@@ -1,1 +1,14 @@
 problem url: https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/
+
+class Solution(object):
+    def appendCharacters(self, s, t):
+        sol = 0
+        j = 0
+        for i in t:
+            while j < len(s) and s[j] != i:
+                j += 1
+            if j == len(s):
+                sol += 1
+            else:
+                j += 1
+        return sol
