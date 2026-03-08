@@ -1,0 +1,13 @@
+class Solution(object):
+    def findContentChildren(self, g, s): 
+        g.sort()
+        s.sort()
+        i = 0
+        for cookie in s:
+            if i < len(g):
+                if cookie >= g[i]:
+                    i = i + 1
+            if i == len(g):
+                break
+        return i
+
