@@ -1,0 +1,14 @@
+class Solution(object):
+    def maxArea(self, height_list):
+        i, j = 0, len(height_list) - 1  
+        sol = 0  
+        while i < j:
+            curr_area = min(height_list[i], height_list[j]) * (j - i)
+            sol = max(sol, curr_area)
+            if height_list[i] < height_list[j]:
+                i += 1
+            else:
+                j -= 1
+            if (j - i) * min(height_list[i], height_list[j]) <= sol:
+                break
+        return sol
