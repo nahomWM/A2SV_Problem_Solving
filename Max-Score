@@ -1,0 +1,10 @@
+class Solution(object):
+    def maxScore(self, cardPoints, k):
+        left = sum(cardPoints[:k])
+        sol = left
+        right = 0
+        for i in range(1, k+1):
+            left -= cardPoints[k-i]
+            right += cardPoints[-i]
+            sol = max(sol, left + right)    
+        return sol
