@@ -6,6 +6,7 @@ for i in range(n):
     if a[i] % 2 != p:
         f = False
         break
+
 if not f:
     a.sort()
 print(*a)
