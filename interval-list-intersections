@@ -1,0 +1,14 @@
+class Solution:
+    def intervalIntersection(self, firstList, secondList):
+        sol = []     
+        for i1, j1 in firstList:
+            for i2, j2 in secondList:             
+                if j2 < i1:
+                    continue                 
+                if i2 > j1:
+                    break            
+                start = max(i1, i2)
+                end = min(j1, j2)              
+                if start <= end:
+                    sol.append([start, end])        
+        return sol
