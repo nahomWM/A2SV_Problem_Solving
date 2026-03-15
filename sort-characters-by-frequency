@@ -1,0 +1,23 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        a = list(s)
+        sol = ''
+        while a:
+            b = []
+            for x in a:
+                if x not in b:
+                    b.append(x)
+            m = 0
+            c = ''
+            for x in b:
+                cnt = a.count(x)
+                if cnt > m:
+                    m = cnt
+                    c = x
+            sol += c * m
+            d = []
+            for x in a:
+                if x != c:
+                    d.append(x)
+            a = d
+        return sol
