@@ -1,0 +1,18 @@
+from collections import Counter
+
+class Solution:
+    def countGood(self, nums, k):
+        a = Counter()
+        i = 0
+        c = 0
+        sol = 0       
+        for j in range(len(nums)):
+            b = nums[j] 
+            c += a[b]
+            a[b] += 1
+            while c >= k:
+                sol += len(nums) - j
+                a[nums[i]] -= 1
+                c -= a[nums[i]]
+                i += 1       
+        return sol
