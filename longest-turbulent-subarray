@@ -1,0 +1,12 @@
+class Solution:
+    def maxTurbulenceSize(self, arr: list[int]) -> int:
+        i = d = sol = 1 
+        for a, b in zip(arr, arr[1:]):
+            if a < b:
+                i, d = d + 1, 1
+            elif a > b:
+                d, i = i + 1, 1
+            else:
+                i = d = 1
+            sol = max(sol, i, d)
+        return sol
