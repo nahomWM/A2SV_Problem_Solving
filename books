@@ -1,0 +1,15 @@
+n, t = map(int, input().split())
+a = list(map(int, input().split()))
+
+sol = 0
+current = 0
+l = 0
+for r in range(n):
+    current += a[r]
+    while current > t:
+        current-= a[l]
+        l += 1
+    if (r - l + 1) > sol:
+        sol = r - l + 1
+
+print(sol)
