@@ -1,0 +1,13 @@
+class Solution:
+    def numberOfSubarrays(self, a, k):
+        main = [-1]
+        for i in range(len(a)):
+            if a[i] % 2:
+                main.append(i) 
+        main.append(len(a)) 
+        sol = 0
+        for i in range(1, len(main) - k):
+            l = main[i] - main[i-1]
+            r = main[i+k] - main[i+k-1]
+            sol += l * r
+        return sol
