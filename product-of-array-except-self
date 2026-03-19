@@ -1,0 +1,13 @@
+class Solution:
+    def productExceptSelf(self, a):
+        n = len(a)
+        sol = [1]*n
+        a1 = 1
+        for i in range(n):
+            sol[i] = a1
+            a1 *= a[i]
+        b = 1
+        for i in range(n-1, -1, -1):
+            sol[i] *= b
+            b *= a[i]   
+        return sol
