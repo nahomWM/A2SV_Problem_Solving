@@ -1,0 +1,16 @@
+class Solution:
+    def checkSubarraySum(self, nums, k):
+        b = 0
+        holder = set()
+        prev = 0
+        for num in nums:
+            b += num
+            if k != 0:
+                rem = b % k
+            else:
+                rem = b
+            if rem in holder:
+                return True
+            holder.add(prev)
+            prev = rem
+        return False
