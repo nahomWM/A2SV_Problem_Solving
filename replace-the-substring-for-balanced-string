@@ -1,0 +1,16 @@
+from collections import Counter
+
+class Solution:
+    def balancedString(self, s):
+        n = len(s)
+        t = n // 4
+        a = Counter(s)
+        l = 0
+        sol = n
+        for r in range(n):
+            a[s[r]] -= 1
+            while l < n and all(a[c] <= t for c in "QWER"):
+                sol = min(sol, r - l + 1)
+                a[s[l]] += 1
+                l += 1
+        return sol
