@@ -1,0 +1,18 @@
+from collections import Counter
+
+class Solution:
+    def checkInclusion(self, s1, s2):
+        a = Counter(s1)  
+        b = Counter()     
+        l = 0
+        k = len(s1)
+        for r in range(len(s2)):
+            b[s2[r]] += 1
+            if r - l + 1 > k:
+                b[s2[l]] -= 1
+                if b[s2[l]] == 0:
+                    del b[s2[l]]
+                l += 1
+            if r - l + 1 == k and b == a:
+                return True
+        return False
