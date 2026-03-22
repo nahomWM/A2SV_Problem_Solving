@@ -1,0 +1,13 @@
+class Solution(object):
+    def corpFlightBookings(self, bookings, n):
+        a = [0] * (n + 1)
+        for i, j, k in bookings:
+            a[i - 1] += k
+            if j < n:
+                a[j] -= k
+        sol = []
+        cur = 0
+        for x in a[:-1]:
+            cur += x
+            sol.append(cur)
+        return sol
