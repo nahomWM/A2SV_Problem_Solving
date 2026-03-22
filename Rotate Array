@@ -1,0 +1,6 @@
+class Solution(object):
+    def rotate(self, nums, k):
+        a = len(nums)
+        k = k % a
+        nums[:] = nums[-k:] + nums[:-k]
+        return nums
