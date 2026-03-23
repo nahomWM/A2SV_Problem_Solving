@@ -9,4 +9,5 @@ class Solution:
         for i in range(k, n - k):
             total = pref[i + k + 1] - pref[i - k]
             sol[i] = total // a
+
         return sol
