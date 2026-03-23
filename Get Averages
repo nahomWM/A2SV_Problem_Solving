@@ -1,0 +1,12 @@
+class Solution:
+    def getAverages(self, nums, k):
+        n = len(nums)
+        sol = [-1] * n
+        pref = [0] * (n + 1)
+        for i in range(n):
+            pref[i + 1] = pref[i] + nums[i]
+        a = 2 * k + 1
+        for i in range(k, n - k):
+            total = pref[i + k + 1] - pref[i - k]
+            sol[i] = total // a
+        return sol
