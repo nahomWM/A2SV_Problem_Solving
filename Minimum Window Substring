@@ -1,0 +1,27 @@
+from collections import Counter
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        a = Counter(t)
+        b = []
+        for i, c in enumerate(s):
+            if c in a:
+                b.append((i, c))
+        l = 0
+        count = len(t)
+        sol = ""
+        for r in range(len(b)):
+            i, c = b[r]
+            if a[c] > 0:
+                count -= 1
+            a[c] -= 1
+            while count == 0:
+                start = b[l][0]
+                end = i
+                if not sol or end - start + 1 < len(sol):
+                    sol = s[start:end+1]
+                a[b[l][1]] += 1
+                if a[b[l][1]] > 0:
+                    count += 1
+                l += 1
+        return sol
