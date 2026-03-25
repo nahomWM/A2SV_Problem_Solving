@@ -1,0 +1,17 @@
+from typing import List
+
+class NumMatrix:
+
+    def __init__(self, matrix: List[List[int]]):
+        self.rows = []
+        for row in matrix:
+            pref = [0]
+            for x in row:
+                pref.append(pref[-1] + x)
+            self.rows.append(pref)
+
+    def sumRegion(self, r1: int, c1: int, r2: int, c2: int) -> int:
+        sol = 0
+        for r in range(r1, r2+1):
+            sol += self.rows[r][c2+1] - self.rows[r][c1]
+        return sol
