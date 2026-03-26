@@ -1,0 +1,19 @@
+class Solution:
+    def shiftingLetters(self, s, shifts):
+        n = len(s)
+        a = [0] * n 
+        for l, r, t in shifts:
+            val = 1 if t == 1 else -1
+            a[l] += val
+            if r + 1 < n:
+                a[r + 1] -= val
+        for i in range(1, n):
+            a[i] += a[i - 1]
+        sol = []
+        for i in range(n):
+            pos = ord(s[i]) - ord('a')  
+            pos = pos + a[i]
+            pos = pos % 26             
+
+            sol.append(chr(pos + ord('a')))
+        return "".join(sol)
