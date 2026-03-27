@@ -1,0 +1,19 @@
+from collections import defaultdict
+
+class Solution(object):
+    def subarraysWithKDistinct(self, nums, k):
+        return self.main(nums, k) - self.main(nums, k - 1)
+
+    def main(self, nums, k):
+        d = defaultdict(int)
+        l = 0
+        sol = 0
+        for r in range(len(nums)):
+            d[nums[r]] += 1
+            while len(d) > k:
+                d[nums[l]] -= 1
+                if d[nums[l]] == 0:
+                    del d[nums[l]]
+                l += 1
+            sol += r - l + 1
+        return sol
