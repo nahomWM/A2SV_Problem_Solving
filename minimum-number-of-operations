@@ -1,0 +1,13 @@
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        n = len(nums)
+        arr = sorted(set(nums))     
+        l = 0
+        window = 0
+        
+        for r in range(len(arr)):
+            while arr[r] - arr[l] > n - 1:
+                l += 1
+            window_size = r - l + 1 
+            window = max(window, window_size)
+        return n - window
