@@ -20,5 +20,5 @@ class Solution:
                 elif s < 0:
                     l += 1
                 else:
-                    r -= 1
+                r -= 1
         return sol
