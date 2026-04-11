@@ -1,0 +1,23 @@
+solution url: https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/submissions/1975789206/
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:    
+        stack = []
+        current = head
+        while current:
+            stack.append(current.val)
+            current = current.next
+    
+        current = head
+        a = 0 
+        while current:
+            b = stack.pop()
+            a = max(a, current.val + b)
+            current = current.next
+        return a
