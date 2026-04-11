@@ -1,0 +1,19 @@
+solution url: https://leetcode.com/problems/daily-temperatures/?envType=problem-list-v2&envId=monotonic-stack
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        sol = []
+        for _ in temperatures:
+            sol.append(0)
+        stack = []
+        for i in range(len(temperatures)):
+            while True:
+                if len(stack) == 0:
+                    break
+                last_index = stack[-1]
+                if temperatures[i] <= temperatures[last_index]:
+                    break
+                stack.pop()
+                sol[last_index] = i - last_index
+            stack.append(i)
+        return sol
