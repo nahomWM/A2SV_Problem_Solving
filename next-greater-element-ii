@@ -1,0 +1,18 @@
+solution url: https://leetcode.com/problems/next-greater-element-ii/submissions/1976719869/?envType=problem-list-v2&envId=stack
+
+class Solution(object):
+    def nextGreaterElements(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        n = len(nums)
+        a = []
+        sol = [-1] * n
+        for i in range(2 * n):
+            cur = nums[i % n]
+            while a and nums[a[-1]] < cur:
+                sol[a.pop()] = cur
+            if i < n:
+                a.append(i)
+        return sol
