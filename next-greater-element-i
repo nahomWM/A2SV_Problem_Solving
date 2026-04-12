@@ -1,0 +1,27 @@
+solution url: https://leetcode.com/problems/next-greater-element-i/submissions/1976345381/?envType=problem-list-v2&envId=stack
+
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        stack = []
+        a = 0
+        for i in nums2:
+            if i > a:
+                a = i
+        s = []
+        for _ in range(a + 1):
+            s.append(-1)
+
+        for i in nums2:
+            while stack and stack[-1] < i:
+                top = stack.pop()
+                s[top] = i
+            stack.append(i)
+        sol = []
+        for num in nums1:
+            sol.append(s[num])
+        return sol
