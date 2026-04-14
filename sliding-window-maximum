@@ -1,0 +1,21 @@
+solution url: https://leetcode.com/problems/sliding-window-maximum/submissions/1978577875/
+
+from collections import deque
+
+class Solution(object):
+    def maxSlidingWindow(self, nums, k):
+        main = deque()
+        sol = []
+        n = len(nums)
+        for i in range(n):
+            a = i - k + 1
+            if main and main[0] < a:
+                main.popleft()
+            while main and nums[main[-1]] < nums[i]:
+                main.pop()
+            main.append(i)
+            if i >= k - 1:
+                max_index = main[0]
+                max_value = nums[max_index]
+                sol.append(max_value)
+        return sol
