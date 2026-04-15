@@ -1,0 +1,10 @@
+solution url: https://leetcode.com/problems/fibonacci-number/submissions/1979498783/
+
+class Solution(object):
+    def fib(self, n):
+        if n <= 1:
+            return n
+        prev, cur = 0, 1
+        for i in range(2, n + 1):
+            prev, cur = cur, prev + cur
+        return cur
