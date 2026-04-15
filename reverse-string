@@ -1,0 +1,5 @@
+solution url: https://leetcode.com/problems/reverse-string/submissions/1979414509/
+
+class Solution(object):
+    def reverseString(self, s):
+        s.reverse()
