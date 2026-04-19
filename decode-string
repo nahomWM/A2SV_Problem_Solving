@@ -1,0 +1,22 @@
+solution url: https://leetcode.com/problems/decode-string/submissions/1982996568/
+
+class Solution(object):
+    def decodeString(self, s):
+        stack = []
+        num = 0
+        sol = ""
+
+        for a in s:
+            if a.isdigit():
+                num = num * 10 + int(a)
+            elif a == '[':
+                stack.append((sol, num))
+                sol = ""
+                num = 0
+            elif a == ']':
+                prev, k = stack.pop()
+                sol = prev + sol * k
+            else:
+                sol += a
+        return sol
+            
