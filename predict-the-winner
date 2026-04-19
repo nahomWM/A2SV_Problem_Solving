@@ -1,0 +1,13 @@
+solution url: https://leetcode.com/problems/predict-the-winner/submissions/1983006236/
+
+class Solution(object):
+    def predictTheWinner(self, nums):
+        def mainfun(i, j):
+            if i == j:
+                return nums[i]
+
+            a = nums[i] - mainfun(i+1, j)
+            b = nums[j] - mainfun(i, j-1)
+            
+            return max(a,b)
+        return mainfun(0, len(nums)-1) >= 0
