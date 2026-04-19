@@ -1,0 +1,13 @@
+solution url: https://leetcode.com/problems/powx-n/submissions/1982063925/
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        if n == 0:
+            return 1
+        if n < 0:
+            return 1 / self.myPow(x, -n)
+        sl = self.myPow(x, n // 2)  
+        if n % 2 == 0:
+            return sl * sl
+        else:
+            return x * sl * sl
