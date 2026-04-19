@@ -1,0 +1,20 @@
+solution url: https://leetcode.com/problems/car-fleet/submissions/1983019311/
+
+
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        n = len(position)
+        cars = []
+        for i in range(n):
+            cars.append([position[i], speed[i]])
+        cars.sort()   
+        sol = 0
+        a = 0
+        for i in range(n - 1, -1, -1):
+            j = cars[i][0]
+            k = cars[i][1]        
+            time = (target - j) / k  
+            if time > a:
+                sol += 1
+                a = time
+        return sol
