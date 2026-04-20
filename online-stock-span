@@ -1,0 +1,16 @@
+solution url: https://leetcode.com/problems/online-stock-span/submissions/1983915003/
+
+class StockSpanner:
+    def __init__(self):
+        self.arr = []
+
+    def next(self, price: int) -> int:
+        a = 1 
+        for x in reversed(self.arr):
+            if x <= price:
+                a += 1
+            else:
+                break  
+        self.arr.append(price)
+        return a
+
