@@ -1,0 +1,25 @@
+solution url: https://leetcode.com/problems/asteroid-collision/?envType=problem-list-v2&envId=stack
+
+
+class Solution(object):
+    def asteroidCollision(self, asteroids):
+        """
+        :type asteroids: List[int]
+        :rtype: List[int]
+        """
+        sol = []
+
+        for a in asteroids:
+            alive = True
+
+            while alive and a < 0 and sol and sol[-1] > 0:
+                if sol[-1] < -a:
+                    sol.pop()
+                elif sol[-1] == -a:
+                    sol.pop()
+                    alive = False
+                else:
+                    alive = False
+            if alive:
+                sol.append(a)
+        return sol
