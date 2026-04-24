@@ -1,0 +1,8 @@
+solution url: https://leetcode.com/problems/find-smallest-letter-greater-than-target/submissions/1987217371/
+
+class Solution:
+    def nextGreatestLetter(self, letters, target):
+        for ch in letters:
+            if ch > target:
+                return ch
+        return letters[0]
