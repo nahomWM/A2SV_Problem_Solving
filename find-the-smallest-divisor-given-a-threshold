@@ -1,3 +1,5 @@
+solution url: https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/submissions/1988810875/
+
 class Solution:
     def smallestDivisor(self, nums, threshold):
         l = 1
