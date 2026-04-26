@@ -1,0 +1,24 @@
+solution url: https://leetcode.com/problems/simplify-path/submissions/1988084998/
+
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        stack = []
+        a = ""
+        for i in path:
+            if i == '/':
+                if a == "..":
+                    if stack:
+                        stack.pop()
+                elif a != "" and a != ".":
+                    stack.append(a)
+                a = ""
+            else:
+                a += i
+
+        if a == "..":
+            if stack:
+                stack.pop()
+        elif a != "" and a != ".":
+            stack.append(a)
+
+        return "/" + "/".join(stack)
