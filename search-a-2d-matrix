@@ -1,0 +1,18 @@
+solution url: https://leetcode.com/problems/search-a-2d-matrix/submissions/1988109127/
+
+class Solution:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+        a = len(matrix)
+        b = len(matrix[0])
+        i = 0
+        j = b - 1
+        for _ in range(a + b):
+            if i >= a or j < 0:
+                break
+            if matrix[i][j] == target:
+                return True
+            elif matrix[i][j] > target:
+                j -= 1
+            else:
+                i += 1
+        return False
